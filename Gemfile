@@ -5,8 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'bcrypt',         '3.1.12'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'rails-ujs' , '~> 0.1.0'
+gem 'bcrypt', '3.1.12'
 gem 'bootstrap-sass', '3.3.7'
 
 gem 'rails-controller-testing'
