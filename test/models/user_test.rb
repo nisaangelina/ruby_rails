@@ -65,6 +65,21 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
+  end
+
+# Returns true if the given token matches the digest.
+  def authenticated?(remember_token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  # Forgets a user.
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
 end
 
 
